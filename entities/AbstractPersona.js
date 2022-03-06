@@ -1,11 +1,12 @@
+import {v1 as uuidv1} from 'uuid';
 class AbstractPersona {
-    #uuid = new UUID();
+    #uuid = new String();
     #apellidos = new String();
     #nombres = new String();
     #email = new String();
 
     constructor(_apellidos, _nombres, _email){
-        this.#uuid = UUID.randomUUID().toString();
+        this.#uuid = uuidv1();
         this.#apellidos = _apellidos;
         this.#nombres = _nombres;
         this.#email = _email;
@@ -47,7 +48,7 @@ class AbstractPersona {
     }
 
     tomarAsistencia(){
-        return `Asistencia tomada para ${getUuid()}`
+        return `Asistencia tomada para ${this.getUuid()}`
     }
 }
 

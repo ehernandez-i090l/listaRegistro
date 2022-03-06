@@ -1,4 +1,5 @@
-import AbstractPersona from "./AbstractPersona";
+import AbstractPersona from "./AbstractPersona.js";
+
 class Alumno extends AbstractPersona{
     #carne = new String();
     #numeroCreditos = new Number();
