@@ -30,3 +30,5 @@ class Alumno extends AbstractPersona{
         return 1
     }
 }
+
+export default Alumno
