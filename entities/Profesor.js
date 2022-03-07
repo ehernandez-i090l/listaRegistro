@@ -1,35 +1,44 @@
 import AbstractPersona from "./AbstractPersona.js";
 
-class Profesor extends AbstractPersona{
-    #cui = new String();
-    #cargo = new String();
+class Profesor extends AbstractPersona {
+  #cui = new String();
+  #cargo = new String();
 
-    constructor(_apellidos, _nombres, _email, _cui, _cargo){
-        super(_apellidos, _nombres, _email);
-        this.#cui = _cui;
-        this.#cargo = _cargo;
-    }
+  constructor(_apellidos, _nombres, _email, _cui, _cargo) {
+    super(_apellidos, _nombres, _email);
+    this.#cui = _cui;
+    this.#cargo = _cargo;
+    
+  }
 
-    setCui(_cui){
-        this.#cui = _cui;
-    }
+  setCui(_cui) {
+    this.#cui = _cui;
+  }
 
-    setCargo(_cargo){
-        this.#cargo = _cargo;
-    }
+  setCargo(_cargo) {
+    this.#cargo = _cargo;
+  }
 
-    getCui(){
-        return this.#cui;
-    }
+  getCui() {
+    return this.#cui;
+  }
 
-    getCargo(){
-        return this.#cargo;
-    }
+  getCargo() {
+    return this.#cargo;
+  }
 
-    //@Override
-    tomarAsistencia(){
-        return 2
-    }
+  //@Override
+  listarMisDatos() {
+    console.log("Override listar");
+  }
+  eliminarAsignatura() {
+    console.log("Override eliminar");
+  }
+
+  //@Override
+  tomarAsistencia() {
+    return 2;
+  }
 }
 
-export default Profesor
+export default Profesor;
