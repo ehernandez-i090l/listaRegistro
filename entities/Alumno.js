@@ -20,7 +20,7 @@ class Alumno extends IOperaciones.implementedWith(AbstractPersona) {
     }
 
     //@Override implements
-    this.eliminarAsignatura = () => {console.log('Override eliminar asignatura');}
+    this.eliminarAsignatura = (_idAsignatura) => {console.log(`Se ha eliminado la asignatura de ${this.getNombres()} ${this.getApellidos()}, perderá la cantidad de créditos de: ${this.getNumeroCreditos()}`);}
   }
 
   setCarne(_carne) {

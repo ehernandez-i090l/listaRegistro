@@ -1,7 +1,7 @@
 const IOperaciones = {
   implementedWith: (SuperClass) => class extends SuperClass {
-      listarMisDatos = () => {console.log("listar");};
-      eliminarAsignatura = () => {console.log("eliminar");};
+      listarMisDatos = (_id) => {console.log("listar");};
+      eliminarAsignatura = (_idAsignatura) => {console.log("eliminar");};
     },
 };
 

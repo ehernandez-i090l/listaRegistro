@@ -8,6 +8,23 @@ function operarRegistro(_persona){
     listaGeneral.push(_persona)
 }
 
+function registrarAsistencia(_persona){
+  _persona.tomarAsistencia()
+}
+
+function verMisDatos(_persona){
+    if (_persona.constructor.name === Profesor.name){
+      _persona.listarMisDatos(_persona.getCui())
+    } else {
+      _persona.listarMisDatos(_persona.getCarne())
+    }
+}
+
+function quitarAsignatura(_persona){
+  _persona.eliminarAsignatura('test')
+}
+
+
 
 
 function main() {
@@ -15,13 +32,17 @@ function main() {
   operarRegistro(a);
   console.log(a.tomarAsistencia());
 
-  const p = new Profesor("Hernández","Edson","edson@email.com","0101","TICS");
+  const p = new Profesor("Hernández","Edson","edson@email.com",1010,"TICS");
   operarRegistro(p);
   console.log(p.tomarAsistencia());
-
+  
+  verMisDatos(a);
+  quitarAsignatura(a);
+  
+  /*
   console.log(a.listarMisDatos(22001));
+  console.log(p.listarMisDatos(1010));
+  */
 }
 
 main();
-
-listaGeneral.forEach(e => console.log(e.getNombres()))
