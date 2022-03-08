@@ -1,7 +1,7 @@
 import AbstractPersona from "./AbstractPersona.js";
 import IOperaciones from "../interfaces/IOperaciones.js";
 
-class Profesor extends IOperaciones.implementedWith(AbstractPersona) {
+class Profesor extends AbstractPersona {
   #cui = new String();
   #cargo = new String();
 
@@ -9,21 +9,6 @@ class Profesor extends IOperaciones.implementedWith(AbstractPersona) {
     super(_apellidos, _nombres, _email);
     this.#cui = _cui;
     this.#cargo = _cargo;
-
-    //@Override implements
-    this.listarMisDatos = (_cui) => {
-      if (_cui === this.getCui()) {
-        console.log(
-          `El Profesor es ${this.getNombres()} ${this.getApellidos()}, con correo ${this.getEmail()} y su cargo es ${this.getCargo()}`
-        );
-      } else {
-        console.log(`${_cui} no coincide.`);
-      }
-    };
-
-    //@Override implements
-    this.eliminarAsignatura = (_idAsignatura) => {console.log(`Se ha eliminado la asignatura del profesor ${this.getNombres()} ${this.getApellidos()}`);}
-
   }
   setCui(_cui) {
     this.#cui = _cui;
@@ -46,5 +31,17 @@ class Profesor extends IOperaciones.implementedWith(AbstractPersona) {
     return 2;
   }
 }
+
+Object.assign(Profesor.prototype, IOperaciones)
+
+//@Override
+Profesor.prototype.listarMisDatos  = (_persona) => {
+
+  console.log(`El Profesor es ${_persona.getNombres()} ${_persona.getApellidos()}, con correo ${_persona.getEmail()} y su cargo es ${_persona.getCargo()}`);
+    
+};
+
+//@Override
+Profesor.prototype.eliminarAsignatura = (_persona) => {console.log(`Se ha eliminado la asignatura del profesor ${_persona.getNombres()} ${_persona.getApellidos()}`);}
 
 export default Profesor;

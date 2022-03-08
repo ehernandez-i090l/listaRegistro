@@ -13,15 +13,11 @@ function registrarAsistencia(_persona){
 }
 
 function verMisDatos(_persona){
-    if (_persona.constructor.name === Profesor.name){
-      _persona.listarMisDatos(_persona.getCui())
-    } else {
-      _persona.listarMisDatos(_persona.getCarne())
-    }
+      _persona.listarMisDatos(_persona)
 }
 
 function quitarAsignatura(_persona){
-  _persona.eliminarAsignatura('test')
+  _persona.eliminarAsignatura(_persona)
 }
 
 
@@ -39,10 +35,8 @@ function main() {
   verMisDatos(a);
   quitarAsignatura(a);
   
-  /*
-  console.log(a.listarMisDatos(22001));
-  console.log(p.listarMisDatos(1010));
-  */
+ 
+  
 }
 
 main();

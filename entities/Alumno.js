@@ -1,26 +1,13 @@
 import AbstractPersona from "./AbstractPersona.js";
 import IOperaciones from "../interfaces/IOperaciones.js";
 
-class Alumno extends IOperaciones.implementedWith(AbstractPersona) {
+class Alumno extends AbstractPersona {
   #carne = new String();
   #numeroCreditos = new Number();
   constructor(_apellidos, _nombres, _email, _carne, _numeroCreditos) {
     super(_apellidos, _nombres, _email);
     this.#carne = _carne;
     this.#numeroCreditos = _numeroCreditos;
-
-    //@Override implements
-    this.listarMisDatos = (_carne) => {
-        if (_carne === this.getCarne()){
-            console.log(`El Alumno es ${this.getNombres()} ${this.getApellidos()}, con correo ${this.getEmail()} y ${this.getNumeroCreditos()} créditos totales.`);
-        } else {
-            console.log(`${_carne} no coincide.`)
-        }
-        
-    }
-
-    //@Override implements
-    this.eliminarAsignatura = (_idAsignatura) => {console.log(`Se ha eliminado la asignatura de ${this.getNombres()} ${this.getApellidos()}, perderá la cantidad de créditos de: ${this.getNumeroCreditos()}`);}
   }
 
   setCarne(_carne) {
@@ -44,5 +31,24 @@ class Alumno extends IOperaciones.implementedWith(AbstractPersona) {
     return 1;
   }
 }
+
+//Implements
+Object.assign(Alumno.prototype, IOperaciones)
+
+//@Override
+Alumno.prototype.listarMisDatos = (_persona) => {
+  
+    
+      console.log(
+        `El Alumno es ${_persona.getNombres()} ${_persona.getApellidos()}, con correo ${_persona.getEmail()}`
+      );
+
+}
+
+//@Override implements
+Alumno.prototype.eliminarAsignatura = (_persona) => {
+  console.log(`Se ha eliminado la asignatura de ${_persona.getNombres()} ${_persona.getApellidos()} perderá ${_persona.getNumeroCreditos()} créditos`);
+}
+
 
 export default Alumno;
